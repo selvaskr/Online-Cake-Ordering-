@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'Admin/Adminhome.css' %}">
+    <title>Ordered Products</title>
+</head>
+<body>
+    <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    .table{
+        margin:4rem 2rem;
+        padding:2rem;
+        border:1px solid  #E8EBED;
+        border-radius: 5px;
+        color: #3b3b3b;
+        font-size: 15px;
+    }
+    </style>
+    <header style="background-color: #FAFBFE; border-right: 1px solid #E8EBED;">
+        <div class="title" style=" color:#000;border-right: 1px solid #FAFBFE;">
+            <h3>Cake Park</h3>
+        </div>
+        <nav style="background-color: #FAFBFE;">
+            <div class="admin">
+                <div class="adminimg"><img src="{% static 'images/admin1.png' %}" alt=""></div>
+                <div class="adminname" style="padding-top:12px;">
+                    <h3>Admin</h3>
+                </div>
+            </div>
+            <ul>
+                <li><a href=""><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
+                <li><a href="{% url 'adminproducts' %}"><img class="icon" src="{% static 'images/products1.png' %}"
+                            alt="">Products</a></li>
+                <li><a href="{% url 'adminproductorders' %}"><img class="icon" src="{% static 'images/orders1.png' %}" alt="">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="dashboard" style="margin-left: 210px;">
+        <div class="dastitle" style="background-color: #FAFBFE; color:#000;border-bottom: 1px solid #E8EBED;">
+            <h3>Orders List</h3>
+            <div class="logout">
+                <a href="{% url 'logout' %}" style="color:#000; text-decoration: none; ">
+                    <h5 style="display: flex; align-items: center; justify-content: center;">Logout <span
+                            style="margin-left: 15px;"><img src="{% static 'images/admin1.png' %}" alt=""></span></h5>
+                </a>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Customer No</th>
+                    <th>Customer Name</th>
+                    <th>Item</th>
+                    <th>Total Amount</th>
+                    <th>Delivery Date</th>
+                    <th>Delivered</th>
+                </tr>
+                {% for key,Customer in orderlist.items %}
+                <tr>
+                        <td><a href="{% url 'admincustomerpanel' Customer.id %}" style="color: #3b3b3b;">{{key}}</a></td>
+                        <td>{{ Customer.Name }}</td>
+                        <td>2</td>
+                        <td>{{Customer.Amount}}</td>
+                        <td>{{Customer.Delivery}}</td>
+                        <td>{{Customer.Status}}</td>
+                        <!-- <td>{{Customer.Name}}</td>
+                        <td>{{product.Amount}}</td> -->
+                            
+                </tr>
+                {% endfor %}
+                
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

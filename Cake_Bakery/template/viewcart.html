@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'viewcart.css' %}">
+    <title>Cake Park</title>
+</head>
+<body>
+    <header style="background-color: #000;">
+        <nav>
+            <li><a href="">Home</a></li>
+            <li><a href="{% url 'products' %}">Our Cakes</a></li>
+        </nav>
+        <div class="title">
+            <h2>Cake Park</h2>
+        </div>
+        <nav>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact us</a></li>
+        </nav>
+    </header>
+
+
+    <section class="main">
+        <div class="cart">
+            <h2> <img src="{% static 'images/cart.png' %}" style="width: 25px; height:25px; padding-right: 5px;transition: 0.3s;" alt="">My Cart</h2>
+
+            {% for key,details in merge.items %}
+            <div class="cartitems">
+                <img src="{%  static 'images/choco cake.png' %}" alt="">
+                <div class="cartitem">
+                    <div class="cartdetails">
+                        <h3>{{ details.name }}</h3>
+                        <p>Weight : {{ details.size }} Size</p>
+                        <p>Quantity: {{ details.quantity }}</p>
+                        <h4>Price : ${{details.price}}</h4>
+                    </div>
+                    <a href="{% url 'deletecartproduct' key %}"><button class="button"><img src="{% static 'images/remove.png' %}" alt=""></button></a>
+                </div> 
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="payment">
+            <h2 style="border-bottom: 1px solid #ababab; margin-bottom: 8px; padding-bottom: 8px;">Summary</h2>
+            <p><span>Sub Total</span>{{amount}}</p>
+            <p><span>Tax</span>0.00</p>
+            <p> <span style="font-size: 18px; font-weight: bold;">Total</span> ${{amount}} </p>
+            <a href="{% url 'orderproducts' %}"><button> Order Now </button></a>
+
+        </div>
+    </section>
+</body>
+</html>

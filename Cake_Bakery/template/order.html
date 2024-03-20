@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <title>Cake Park | Order</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            
+        }
+        .maincontent{
+            display: flex;
+        }
+        .form{
+            padding:1rem 16rem 2rem 8rem;
+            width: 100%;
+            background-color: #fefae1;
+            border-right: 1px solid #3F000f;
+        }
+        .booking{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color:#3F000f;
+            padding:20px;
+
+        }
+        .info div{
+            display: flex;
+            flex-direction: column;
+            padding:0px 10px; 
+            margin: 15px 0px;
+        }
+        .info div input{
+            margin-top: 10px;
+            padding: 8px 15px;  
+            border: 2px solid #3b09147e;
+            outline: none;
+            background-color: transparent;
+            border-radius: 8px;
+        }
+        .button input{
+            margin-top: 2rem;
+            padding: 0.5rem 8.5rem;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            background-color: rgb(183, 138, 78);
+            border:none;
+        }
+        .button input:hover{
+            cursor: pointer;
+            background-color: rgb(144, 103, 49);
+        }
+        .paymentsection img{
+            width:700px;
+            height:100vh;
+            object-fit: cover;
+        }
+        #custom-alert {
+            display: none;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px 5px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 2; /* Place the alert box above the backdrop */
+        }
+        #backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+            backdrop-filter: blur(5px); /* Adjust the blur strength as needed */
+            z-index: 1; /* Place the backdrop above other elements */
+            display: none; /* Initially hidden */
+        }
+
+
+        #custom-alert p {
+            color: #343434;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #custom-alert button {
+            background-color:rgb(4, 176, 4);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    <section class="maincontent">
+        <section class="paymentsection">
+            <img src="https://img.freepik.com/premium-photo/cake-with-raspberries-it_931576-19905.jpg?size=626&ext=jpg&ga=GA1.1.1093191407.1696926194&semt=ais" alt="">
+        </section>
+
+        <section class="form">
+            <div class="booking">
+                <h2 style="margin-bottom: 10px;">CAKE PARK</h2>
+                <h2 style="margin-top: 10px;">BOOKING FORM</h2>
+            </div>
+            <div class="bookingform">
+                <form method="POST" action="{% url 'orderproducts' %}" onsubmit="return showCustomAlert()">
+                    {% csrf_token %}
+                    <div class="info">
+                        <div>
+                            <label for="">Mobile Number</label>
+                            <input class="fname" type="text"  name="mobile" placeholder="Enter your Mobile Number">
+                        </div>
+                        <div>
+                            <label for="">Full Name</label>
+                            <input class="fname" type="text" name="name"  placeholder="Enter your Name">
+                        </div>
+                        <div>
+                            <label for="">Email</label>
+                            <input class="fname" type="text" name="email" placeholder="Enter your Email">
+                        </div>
+                        <div>
+                            <label for="">Delivery Date</label>
+                            <input class="deliverydate" type="date" name="delivery" placeholder="Date">
+                        </div>
+                        <div>
+                            <label for="">Address</label>
+                            <input class="fname" type="text" name="address" placeholder="Full name">
+                        </div>
+                    </div>
+                    <div class="button" style="text-align: center;"><input type="submit" value="Checkout"></div>
+                </form>
+            </div>
+        </section>   
+        
+    </section>
+    <div id="backdrop"></div>
+    <div id="custom-alert">
+        <p><img src="{% static 'images/tick.png'%}" alt="" style="width:40px;">Order Placed</p>
+        <button onclick="hideCustomAlert()">OK</button>
+    </div>
+    
+    <script>
+        function showCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'block';
+            document.getElementById('backdrop').style.display = 'block';  
+            return false;
+        }
+
+        function hideCustomAlert() {
+            document.getElementById('backdrop').style.display = 'none';
+            document.getElementById('custom-alert').style.display = 'none';
+            shouldSubmitForm = true;
+
+            // Check if the form should be submitted
+            if (shouldSubmitForm) {
+                // Submit the form
+                document.forms[0].submit();
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

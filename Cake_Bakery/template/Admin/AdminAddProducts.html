@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'Admin/Adminhome.css' %}">
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+    </script>
+    <title>
+        {% if action == 'Add' %}
+            Add
+        {% else %}  
+            Edit
+        {% endif %} Product</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+        *{
+            padding:0;
+            margin:0;
+        }
+        form{
+            margin:2rem 20rem 2rem 4rem;
+            padding:2rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #E8EBED;
+            background-color: #FAFBFE;
+        }
+        .rowform{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .rowform div,.textdes,.image{
+            display: flex;
+            flex-direction: column;
+            margin:1rem 0rem;
+            color:#232323;
+            font-size: 14px;
+        }
+        .rowform input[type="text"],.rowform input[type="number"],textarea{
+            width:200px;
+            padding:8px 12px;
+            border-radius: 5px;
+            border: 2px solid #24242451;
+            outline: none;
+            background-color: transparent;
+        }
+        button{
+            padding:0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+            color:#fff;
+            font-weight: 500;
+            background-color: #ff8823;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: #e76c00;
+        }
+    </style>
+
+    <header style="background-color: #FAFBFE;border-right: 1px solid #E8EBED;">
+        <div class="title" style=" color:#000; border-right: 1px solid #FAFBFE;">
+            <h3>Cake Park</h3>
+        </div>
+        <nav style="background-color: #FAFBFE;">
+            <div class="admin">
+                <div class="adminimg"><img src="{% static 'images/admin1.png' %}" alt=""></div>
+                <div class="adminname" style="padding-top:12px;">
+                    <h3>Admin</h3>
+                </div>
+            </div>
+            <ul>
+                <li><a href=""><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
+                <li><a href="{% url 'adminproducts' %}"><img class="icon" src="{% static 'images/products1.png' %}"
+                            alt="">Products</a></li>
+                <li><a href="{% url 'adminproductorders' %}"><img class="icon" src="{% static 'images/orders1.png' %}" alt="">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="dashboard" style="margin-left: 210px;">
+        <div class="dastitle" style="background-color: #FAFBFE; color:#000;border-bottom: 1px solid #E8EBED;">
+            <h3>{% if action == 'Add' %}
+                Add
+                {% else %}
+                Edit
+                {% endif %} 
+                Product</h3>
+            <div class="logout">
+                <a href="{% url 'logout' %}" style="color:#000; text-decoration: none; ">
+                    <h5 style="display: flex; align-items: center; justify-content: center;">Logout <span
+                            style="margin-left: 15px;"><img src="{% static 'images/admin1.png' %}" alt=""></span></h5>
+                </a>
+            </div>
+        </div>
+        <div class="form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row" style="display: flex; justify-content: space-between;">
+                    <div class="rowform">
+                        <div>
+                            <label style="margin-bottom: 5px;" for="id_product_name">Cake name </label>
+                            <input type="text" name="product_name" maxlength="255" required id="id_product_name">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 5px;" for="id_product_price">Price </label>
+                            <input type="number" name="product_price" required id="id_product_price">
+                        </div>
+                    
+                        <div style="width: 100%;display: flex;flex-direction: row;justify-content: space-between;font-size: 16px; font-weight: 500;">
+                            <label for="id_featured_cake">Featured cake </label>
+                            <input type="checkbox" name="featured_cake" id="id_featured_cake">
+                        </div>
+                    </div>
+                    
+                    <div class="textdes">
+                        <label style="margin-bottom: 5px;" for="id_product_des">Product des:</label>
+                        <textarea name="product_des" cols="40" rows="10" maxlength="500" style="width: 350px;" required id="id_product_des">Default Description</textarea>
+                    </div>
+                </div>
+                <div class="image">
+                    <label style=" margin-bottom: 5px;" for="id_product_img">Cake image</label>
+                    <input type="file" name="product_img" accept="image/*"  id="id_product_img">
+                </div>
+                
+                <div class="button" style="text-align: center; "><button type="submit">{% if action == 'Add' %}Add{% else %}Save{% endif %} to Product List</button></div>
+            </form>
+        </div>
+        
+    </div> 
+
+</body> 
+
+</html>

@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <title>CakePark</title>
+</head>
+<body>
+    <section class="firstimge">
+        <header>
+            <nav>
+                <li><a href="">Home</a></li>
+                <li><a href="{% url 'products' %}">Our Cakes</a></li>
+            </nav>
+            <div class="title"><h2>Cake Park</h2></div>
+            <nav>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact us</a></li>
+            </nav>
+        </header>
+        <div class="centercontent">
+            <h1>Deliciousness baked to perfection</h1>
+        </div>
+    </section>
+
+    <!-- Our Featured Cakes -->
+    <section class="cakes">
+        <div class="secondtitle">
+            <h1>Our Featured Cakes</h1>
+        </div>
+        <div class="row">
+            {% for product in products %}
+    
+                {% if product.featured_cake %}
+                    <div class="col">
+                        <div class="cakeimage"><img src="{{ product.product_img.url }}" alt=""></div>
+                        <div class="cakename">
+                            <h3>{{ product.product_name}}</h3>
+                            <p>${{ product.product_price }}</p>
+                            <a href="{% url 'productdetail' product.product_id %}"><button>Buy Now</button></a>
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
+                <div class="cakename">
+                    <h3>Chococake</h3>
+                    <p>$250</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+
+    <section class="about">
+        <div class="thirdtitle"><h1>About Us</h1></div>
+        <div class="content">
+            <div class="aboutimage">
+                <img src="{% static 'images/cake2.jpg' %}" alt="">
+            </div>
+            <div class="aboutcontent">
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+                'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
+                editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                (injected humour and the like).</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+
+    <footer class="footer" style="background-color: #d5a776;">
+        <div class="footersection">
+            <div class="foottitle">
+                <h1>Cake Park</h1>
+                <p>Quality and taste blended in a single bowl!,<br>
+                Long journey of Flavours for life’s happy moments!</p>
+                <div class="wrapper">
+                    <div class="icon facebook">
+                        <span><i class="fab fa-facebook-f"></i></span>
+                    </div>
+                    <div class="icon twitter">
+                        <span><i class="fab fa-twitter"></i></span>
+                    </div>
+                    <div class="icon instagram">
+                        <span><i class="fab fa-instagram"></i></span>
+                    </div>
+                    <div class="icon github">
+                        <span><i class="fab fa-github"></i></span>
+                    </div>
+                    <div class="icon youtube">
+                        <span><i class="fab fa-youtube"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="contactus">
+                <h4>Contact Us</h4>
+                <p>Terms and Policies</p>
+                <p>cakepark.business@gmail.com</p>
+                <p>+91-8085648255</p>
+            </div>
+            <div class="address">
+                <h4 style="padding-bottom:5px ;">Address</h4>
+                <p>Sathyamangalam Road,<br>
+                Thiruvallur PO, <br>
+                Chennai ,TamilNadu,<br>
+                625006
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom" style="width: 100%; text-align: center; font-size: 13px;">
+            <p class="copyright">
+                &copy; 2023 <a href="#" style="text-decoration: none; color:black;">cakepark</a>. All Rights Reserved
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

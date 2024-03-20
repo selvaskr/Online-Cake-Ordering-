@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Alert Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #custom-alert {
+            display: none;
+            position: fixed;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        #custom-alert p {
+            color: #343434;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #custom-alert button {
+            background-color:rgb(4, 176, 4);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="showCustomAlert()">Show Custom Alert</button>
+
+    <div id="custom-alert">
+        <!-- <h2>Success</h2> -->
+        <p><img src="{% static 'images/tick.png'%}" alt="" style="width:40px;">Order Placed</p>
+        <button onclick="hideCustomAlert()">OK</button>
+    </div>
+
+    <script>
+        function showCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'block';
+        }
+
+        function hideCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

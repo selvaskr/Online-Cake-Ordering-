@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Park | Admin Login</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #fdf7f3;
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:9rem 0rem;
+        }
+        .img{
+            width:399px;
+            height:400px;
+        }
+        .img img{
+            width:100%;
+            height:100%;
+            object-fit: contain;
+        }
+        .content{
+            padding:5rem 3rem;
+            border: 1px solid #E8EBED;
+            background-color: #f2f6fe;
+            text-align: center;
+        }
+        form input{
+            padding:8px;
+            background-color: transparent;
+            border: 1px solid #d8dcde;
+            outline: 1px solid #ffb87b;
+        }
+        form label{
+            font-size: 18px;
+        }
+        form button{
+            margin-top: 1.5rem;
+            padding:7px 20px;
+            font-size: 16px;
+            background-color: #ff8823;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        form button:hover{
+            cursor: pointer;
+            background-color: #ff7d0c;
+        }
+    </style>
+    <div class="form">
+        <div class="img">
+            <img src="{% static 'images/cake3.jpg' %}" alt="">
+        </div>
+        <div class="content">
+            {% block content %}
+                <h2 style="margin-bottom: 2rem;"> Admin Login</h2>
+                <form method="post" action="{% url 'adminlogin' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                </form>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

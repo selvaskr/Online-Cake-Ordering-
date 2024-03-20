@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link type="text/css" rel="stylesheet" href="{% static 'Admin/Adminhome.css' %}">
+    <title>Cake Products | Admin</title>
+</head>
+<body>
+    <div class="back"></div>
+    <header>
+        <div class="title">
+            <h3>Cake Park</h3>
+        </div>
+        <nav>
+            <div class="admin">
+                <div class="adminimg"><img src="{% static 'images/admin1.png' %}" alt=""></div>
+                <div class="adminname" style="padding-top:12px;"><h3>{{user}}</h3></div>
+            </div>
+            <ul>
+                <li><a href=""><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
+                <li><a href="{% url 'adminproducts' %}"><img class="icon" src="{% static 'images/products1.png' %}" alt="">Products</a></li>
+                <li><a href="{% url 'adminproductorders' %}"><img class="icon" src="{% static 'images/orders1.png' %}" alt="">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="dashboard" style="margin-left: 210px;">
+        <div class="dastitle">
+            <h3>Dashboard</h3>
+            <div class="logout">
+                <a href="{% url 'logout' %}" style="color: #fff; text-decoration: none; ">
+                    <h5 style="display: flex; align-items: center; justify-content: center;">Logout <span style="margin-left: 15px;"><img src="{% static 'images/admin1.png' %}" alt=""></span></h5>
+                </a>
+            </div>
+        </div>
+        <h1 class="welcome">Welcome To Admin Panel</h1>
+        <div class="boxes">
+            <div class="box1">
+                <div class="content">
+                    <div class="boxname">Total Sales</div>
+                    <h2>{{count.0}}</h2>
+                </div>
+                <div class="img"><img src="{% static 'images/sales.png' %}" alt=""></div>
+            </div>
+            <div class="box1">
+                <div class="content">
+                    <div class="boxname">Total Products</div>
+                    <h2>{{count.1}}</h2>
+                </div>
+                <div class="img"><img src="{% static 'images/products1.png' %}" alt=""></div>
+            </div>
+            <div class="box1">
+                <div class="content">
+                    <div class="boxname">Offered Products</div>
+                    <h2>{{count.2}}</h2>
+                </div>
+                <div class="img"><img src="{% static 'images/offers.png' %}" alt=""></div>
+            </div>
+            <div class="box1">
+                <div class="content">
+                    <div class="boxname">Live Orders</div>
+                    <h2>{{count.3}}</h2>
+                </div>
+                <div class="img"><img src="{% static 'images/live.jpeg' %}" alt=""></div>
+            </div>
+        </div>
+
+        
+        <div class="table">
+            {% if orderlist %}
+                <h2 style="margin-bottom: 2%;">Recent Orders List</h2>
+            <table>
+                <tr>
+                    <th>Customer No</th>
+                    <th>Customer Name</th>
+                    <th>Item</th>
+                    <th>Total Amount</th>
+                    <th>Delivery Date</th>
+                    <th>Status</th>
+                </tr>
+                {% for key,Customer in orderlist.items %}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{ Customer.Name }}</td>
+                        <td>2</td>
+                        <td>{{Customer.Amount}}</td>
+                        <td>{{Customer.Delivery}}</td>
+                        <td style="display: flex; justify-content: space-around;">
+                            <a href="{% url 'deliverorcancel' Customer.orderid 2 %}"><button style="background-color: #ff8823;">Deliver</button></a>
+                            <a href="{% url 'deliverorcancel' Customer.orderid 0 %}"><button style="background-color: #ff2323;">Cancel</button></a>
+                        </td>
+            
+                    </tr>
+                {% endfor %}
+        
+            </table>
+
+            {% else %}
+            <p style="text-align: center; font-size: 18px;">No Recent Orders</p>
+            {% endif %}
+        
+        </div>
+
+        
+    </div>
+</body>
+</html>
