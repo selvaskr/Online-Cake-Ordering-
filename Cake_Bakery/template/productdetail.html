@@ -36,7 +36,7 @@
                 {% csrf_token %}
                 <div class="cakesize">
                     <label for="size">Select Size : </label>
-                    <input type="hidden" name="size" id="selectedSize" value="">
+                    <input type="hidden" name="size" id="selectedSize" value="" required>
                     <button type="button" class="b" onclick="selectSize(this,1)">1 Size</button>
                     <button type="button" class="b" onclick="selectSize(this,2)">2 Size</button>
                     <button type="button" class="b" onclick="selectSize(this,3)">3 Size</button>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="quantity">
                     <label for="size">Quantity : </label>
-                    <select name="quantity" id="quantity">
+                    <select name="quantity" id="quantity" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

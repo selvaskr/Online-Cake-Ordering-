@@ -32,13 +32,14 @@ class order(models.Model):
       choices=STATUS,
       default=1,
    )
+    noofitems=models.IntegerField()
     delivery_date=models.DateField(auto_now_add=True)
-    amount=models.IntegerField(default=0)
+    Cost=models.IntegerField()
 
 class OrderItem(models.Model):
     order = models.ForeignKey(order, on_delete=models.CASCADE)
     product = models.ForeignKey(Cake_Products, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     size=models.IntegerField()
-    Amount=models.IntegerField(default=0)
+    Amount=models.IntegerField()
     

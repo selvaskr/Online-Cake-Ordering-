@@ -29,7 +29,7 @@ def add_to_cart(request,product_id):
     item['size']=size
     item['price']=int(quantity)*product.product_price
     cart[product_id]=item
-
+    # print("\n\nItem : ",item)
     # print("\n\n\nTYPE OF CART : ",type(cart),"\n","TYPE OF ITEM : ",type(item),"\n\n\n")
     request.session['cart']=cart
     request.session.save()
@@ -57,10 +57,10 @@ def viewcart(request):
             'size':item['size'],
             'imgpath':product.product_img.url,
             'name': product.product_name,
-            'price':item['price'],
+            'price':item['price']
         } 
         amount+=item['price']
-    print("\nMerged Cart with Product Information:\n", merged_cart, "\n")
+    # print("\nMerged Cart with Product Information:\n", merged_cart, "\n","Amount : ",amount)
 
     request.session['cart']=merged_cart
     # for product_id, item in merged_cart.items():
@@ -97,6 +97,7 @@ def orderproducts(request):
         cart=request.session.get('cart', {})
         ordered=order.objects.create(customer=customer)
         amount=0
+        no_of_items=0
         for product_id,item in cart.items():
             product= get_object_or_404(Cake_Products, product_id=product_id)
             OrderItem.objects.create(
@@ -106,11 +107,18 @@ def orderproducts(request):
                 size=item['size'],
                 Amount=item['price']
             )
-            amount=amount+int(item['price'])*int(item['quantity'])
+            no_of_items+=1
+            print("ITEM : ",item)
+            amount=amount+item['price']
 
         delivery_date=request.POST['delivery']
         ordered.delivery_date=delivery_date
-        ordered.amount=amount
+        ordered.Cost=amount
+        ordered.noofitems=no_of_items 
+        ordered.save()
+
+        print("\n\nUser ordered : ",ordered.Cost)
+        print("\n\nUser ordered : ",ordered.delivery_date)
         request.session['cart'] = []
         return redirect(home)
     return render(request,'order.html')

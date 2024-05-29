@@ -42,8 +42,9 @@ def adminhome(request):
             customerorder['orderid']=ordered.order_id
             customerorder['Name']=customerdetails.customer_name
             customerorder['Number']=customerdetails.customer_number
+            customerorder['itemcount']=ordered.noofitems
             customerorder['Delivery']=ordered.delivery_date
-            customerorder['Amount']=ordered.amount
+            customerorder['Amount']=ordered.Cost
             orderlist[customerorder['Number']]=customerorder
 
 
@@ -51,6 +52,8 @@ def adminhome(request):
         'count':allcounts,
         'orderlist':orderlist
     }
+    # print("\n\norderlist : ",orderlist)
+    # print("\n\norderlist : ",customerdetails)
     return render(request,'Admin/Adminhome.html',context)
 
 @login_required(login_url='/admin/login/')
@@ -111,7 +114,7 @@ def adminproductorders(request):
             customerorder['Name']=customerdetails.customer_name
             customerorder['Number']=customerdetails.customer_number
             customerorder['Delivery']=ordered.delivery_date
-            customerorder['Amount']=ordered.amount
+            customerorder['Amount']=ordered.Cost
             customerorder['Status']=ordered.get_status_display
             orderlist[customerorder['Number']]=customerorder
     # print("\n\nOrders :  ",orderlist)
