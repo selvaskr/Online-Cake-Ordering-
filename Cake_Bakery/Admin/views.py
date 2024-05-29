@@ -74,13 +74,18 @@ def adminaddproducts(request):
 def admineditproducts(request,product_id):
     
     product=get_object_or_404(Cake_Products,product_id=product_id)
+    
+    print("Product_Img : ",product.product_img)
 
     if request.method=='POST':
         product.product_name=request.POST.get('product_name')
         product.product_price=request.POST.get('product_price')
-        product.featured_cake=request.POST.get('featured_cake')
+        featured_cake=request.POST.get('featured_cake')=='on'
+        product.featured_cake=featured_cake
         product.product_des=request.POST.get('product_des')
-        product.product_img=request.FILES.get('product_img')
+        product_image=request.FILES.get('product_img')
+        if product_image:
+            product.product_img=product_image
         product.save()
         return redirect('adminproducts')
     
