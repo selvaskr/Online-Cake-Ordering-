@@ -24,7 +24,7 @@
                 </div>
             </div>
             <ul>
-                <li><a href=""><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
+                <li><a href="{% url 'adminhome' %}"><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
                 <li><a href="{% url 'adminproducts' %}"><img class="icon" src="{% static 'images/products1.png' %}"
                             alt="">Products</a></li>
                 <li><a href="{% url 'adminproductorders' %}"><img class="icon" src="{% static 'images/orders1.png' %}" alt="">Orders</a></li>

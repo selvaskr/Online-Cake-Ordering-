@@ -5,97 +5,85 @@
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
 }
-/* nav{
-    padding:1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #000;
-    color:#fff;
-}
-nav ul{
-    display:flex;
-}
-nav ul li{
-    margin:0 1.5rem;
-    list-style: none;
-}
-nav ul li a{
-    color:#fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-section{
-    padding:5rem 15rem;
-    background-color: #fefae1;
-}*/
-.productslist{
-    margin:0rem 2rem;
-    padding:2rem;
+.productslist {
+    margin: 0rem 2rem;
+    padding: 2rem;
     border-radius: 8px;
     border: 1px solid #E8EBED;
     background-color: #FAFBFE;
 }
-.product{
-    width:100%;
-    height:90px;
+
+.product {
+    width: 100%;
+    height: 90px;
     display: flex;
-    margin:1rem 0rem;
+    margin: 1rem 0rem;
     box-shadow: 2px 2px 8px rgb(0, 0, 0, 0.4);
 }
-.productimg{
-    width:100px;
-    height:100%;
+
+.productimg {
+    width: 100px;
+    height: 100%;
 }
-.productimg img{
-    width:100%;
-    height:100%;
-    object-fit: contain;
+
+.productimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.productdetail{
-    padding:0rem 0.7rem;
+
+.productdetail {
+    padding: 0rem 0.7rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.productdetail h3{
+
+.productdetail h3 {
     font-weight: 400;
     padding-bottom: 9px;
 }
-.productprice{
-    padding:0rem 1.5rem;
+
+.productprice {
+    padding: 0rem 1.5rem;
 }
-.button{
+
+.button {
     outline: none;
     border: none;
-    margin:0rem 1rem;
+    margin: 0rem 1rem;
     background-color: transparent;
 }
-.button img{
-    width:30px;
-    height:30px;
+
+.button img {
+    width: 30px;
+    height: 30px;
     transition: 0.3s;
 }
-.button img:hover{
+
+.button img:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
-.addbutton{
-    margin:2rem 4rem;
+
+.addbutton {
+    margin: 2rem 4rem;
     display: flex;
     justify-content: flex-start;
 }
-.addbutton button{
-    padding:0.5rem 1rem;
+
+.addbutton button {
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     border: none;
     font-size: 14px;
-    color:#fff;
+    color: #fff;
     font-weight: 500;
     background-color: #ff8823;
 }
-.addbutton button:hover{
+
+.addbutton button:hover {
     cursor: pointer;
     background-color: #e76c00;
 }

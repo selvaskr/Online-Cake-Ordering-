@@ -18,8 +18,8 @@
             </nav>
             <div class="title"><h2>Cake Park</h2></div>
             <nav>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Contact">Contact us</a></li>
             </nav>
         </header>
         <div class="centercontent">
@@ -47,61 +47,13 @@
                 {% endif %}
 
             {% endfor %}
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cakeimage"><img src="{% static 'images/choco cake.png' %}" alt=""></div>
-                <div class="cakename">
-                    <h3>Chococake</h3>
-                    <p>$250</p>
-                </div>
-            </div>
+            
         </div>
     </section>
 
     <!-- About Us -->
 
-    <section class="about">
+    <section class="about" id="About">
         <div class="thirdtitle"><h1>About Us</h1></div>
         <div class="content">
             <div class="aboutimage">
@@ -143,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contactus">
+            <div class="contactus" id="Contact">
                 <h4>Contact Us</h4>
                 <p>Terms and Policies</p>
                 <p>cakepark.business@gmail.com</p>

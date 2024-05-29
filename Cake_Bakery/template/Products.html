@@ -14,15 +14,15 @@
     <a href="{% url 'viewcart' %}" style="position: absolute; top:12%; right:4%;"><img src="{% static 'images/shcart.png' %}" style="width:35px;" alt=""></a>
     <header style="background-color: #000;">
         <nav>
-            <li><a href="">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'products' %}">Our Cakes</a></li>
         </nav>
         <div class="title">
             <h2>Cake Park</h2>
         </div>
         <nav>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact us</a></li>
+            <li><a href="{% url 'home' %}#About">About</a></li>
+            <li><a href="{% url 'home' %}#Contact">Contact us</a></li>
         </nav>
     </header>
     <section class="cakes">

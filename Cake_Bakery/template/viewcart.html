@@ -12,15 +12,15 @@
 <body>
     <header style="background-color: #000;">
         <nav>
-            <li><a href="">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'products' %}">Our Cakes</a></li>
         </nav>
         <div class="title">
             <h2>Cake Park</h2>
         </div>
         <nav>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact us</a></li>
+            <li><a href="{% url 'home' %}#About">About</a></li>
+            <li><a href="{% url 'home' %}#Contact">Contact us</a></li>
         </nav>
     </header>
 
@@ -31,7 +31,7 @@
 
             {% for key,details in merge.items %}
             <div class="cartitems">
-                <img src="{%  static 'images/choco cake.png' %}" alt="">
+                <img src="{{ details.imgpath }}" alt="">
                 <div class="cartitem">
                     <div class="cartdetails">
                         <h3>{{ details.name }}</h3>

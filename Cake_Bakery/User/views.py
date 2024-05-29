@@ -55,6 +55,7 @@ def viewcart(request):
         merged_cart[product_id] = {
             'quantity': item['quantity'],
             'size':item['size'],
+            'imgpath':product.product_img.url,
             'name': product.product_name,
             'price':item['price'],
         } 

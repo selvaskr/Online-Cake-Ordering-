@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,78 +8,92 @@
 body {
     font-family: 'Noto Sans', sans-serif;
 }
-header{
+
+header {
     height: 100vh;
     width: 210px;
     position: fixed;
 }
-nav{
+
+nav {
     border-top-right-radius: 25px;
     background-color: #fff;
 }
-nav .admin{
-    display:flex;
+
+nav .admin {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:200px;
+    height: 200px;
 }
-nav .adminimg{
-    height:75px;
+
+nav .adminimg {
+    height: 75px;
     width: 75px;
     border-radius: 50%;
     overflow: hidden;
 }
-nav .adminimg img{
-    height:100%;
-    width:100%;
+
+nav .adminimg img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
-nav ul{
-    display:flex;
+
+nav ul {
+    display: flex;
     flex-direction: column;
 }
-nav ul li{
+
+nav ul li {
     list-style: none;
     padding: 0.5rem 2rem;
+    transition: 0.3s;
 }
-nav ul li:hover{
-    background-color: #000;
+
+nav ul li:hover {
+    background-color: #e76c00;
+    color: #fff;
     cursor: pointer;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     font-size: 16px;
-    color:#000;
+    color: #000;
     display: flex;
     align-items: center;
 }
 
-.back{
-    position:absolute;
-    height:330px;
-    width:100%;
+.back {
+    position: absolute;
+    height: 330px;
+    width: 100%;
     background-color: #ff8823;
-    border-bottom-left-radius:30% ;
+    border-bottom-left-radius: 30%;
     border-bottom-right-radius: 30%;
     z-index: -100;
 }
-.title{
-    width:max-content;
+
+.title {
+    width: max-content;
     font-size: 18px;
     /* padding:0.9rem 4rem 0.7rem 3rem; */
-    padding:14px 55px;
-    color:#fff;
+    padding: 14px 55px;
+    color: #fff;
 }
-.icon{
+
+.icon {
     width: 20px;
-    height:20px;
-    margin-right:5px;
+    height: 20px;
+    margin-right: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.dastitle{
+
+.dastitle {
     font-size: 18px;
     display: flex;
     justify-content: space-between;
@@ -87,31 +102,37 @@ nav ul li a{
     /* padding: 14px 54px; */
     color: #fff;
 }
-.welcome{
-    margin:2.5rem 2rem;
+
+.welcome {
+    margin: 2.5rem 2rem;
     color: #fff;
     font-size: 3rem;
 }
-.boxes{
-    margin:2rem;
+
+.boxes {
+    margin: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.box1{
+
+.box1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 0 0 230px;
-    padding:1rem 2rem;
+    padding: 1rem 2rem;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 10px;
 }
-.img img ,.logout img{
-    width:30px;
-    height:30px;
+
+.img img,
+.logout img {
+    width: 30px;
+    height: 30px;
 }
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -137,6 +158,7 @@ tr:nth-child(even) {
     color: #191919;
     font-size: 15px;
 }
+
 td button {
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -145,6 +167,7 @@ td button {
     color: #fff;
     font-weight: 500;
 }
+
 td button:hover {
     cursor: pointer;
     background-color: #e76c00;

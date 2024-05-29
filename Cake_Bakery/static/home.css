@@ -3,54 +3,64 @@
 
 
 
-*{
-    padding:0;
-    margin:0;
+* {
+    padding: 0;
+    margin: 0;
 }
-body{
+html{
+    scroll-behavior: smooth;
+}
+body {
     font-family: 'Noto Sans', sans-serif;
 }
-header{
-    padding:1rem 19rem;
+
+header {
+    padding: 1rem 19rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #14141466;
     color: white;
 }
-nav{
+
+nav {
     display: flex;
     margin: auto;
 }
-nav li{
+
+nav li {
     list-style: none;
-    padding:0rem 2rem;
+    padding: 0rem 2rem;
 }
-nav li a{
+
+nav li a {
     text-decoration: none;
-    color:#fff;
+    color: #fff;
     font-size: 1.1rem;
 }
-.title{
+
+.title {
     font-family: "Sofia", sans-serif;
 }
-.firstimge{
-    width:100%;
-    height:100vh;
+
+.firstimge {
+    width: 100%;
+    height: 100vh;
     /* background: url('images/cake.jpg') no-repeat center; */
     background: url("images/cake.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
-.centercontent{
+
+.centercontent {
     height: calc(100% - 3.7rem);
-    color:#cdcccc;
+    color: #cdcccc;
     font-family: "Sofia", sans-serif;
     font-style: italic;
     text-shadow: 2px 2px 2px #ababab;
-    font-size:3rem;   
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -59,23 +69,28 @@ nav li a{
 
 /*Our Featured Cakes Css*/
 
-.cakes,.about{
-    padding:2rem 0rem;
+.cakes,
+.about {
+    padding: 2rem 0rem;
     background-color: #fefae1;
 }
-.secondtitle,.thirdtitle{
+
+.secondtitle,
+.thirdtitle {
     font-size: 1.8rem;
-    font-family:'Kaushan Script',cursive;
+    font-family: 'Kaushan Script', cursive;
     text-align: center;
-    width:100%;
+    width: 100%;
 }
-.row{
-    padding:1rem 2rem;
+
+.row {
+    padding: 1rem 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
+
 .col {
     width: 230px;
     height: 340px;
@@ -95,6 +110,7 @@ nav li a{
     width: 100%;
     height: 100%;
     transition: 0.5s all ease-in-out;
+    object-fit: cover;
 }
 
 .col:hover img {
@@ -112,9 +128,11 @@ nav li a{
     font-weight: bold;
     transition: 0.5s all ease in ease-in-out;
 }
-.col button:hover{
+
+.col button:hover {
     background-color: rgb(107, 60, 6);
 }
+
 .cakename {
     padding: 0.5rem 0rem;
     display: flex;
@@ -122,67 +140,80 @@ nav li a{
     justify-content: center;
     align-items: center;
 }
-.cakename h3,.cakename p,.cakename a{
+
+.cakename h3,
+.cakename p,
+.cakename a {
     margin: 3px 0px;
 }
+
 /* About Us */
 
-.content{
-    display:flex;
+.content {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.aboutimage{
-    width:40%;
-    height:300px;
-    margin:2rem;
+
+.aboutimage {
+    width: 40%;
+    height: 300px;
+    margin: 2rem;
 }
-.aboutimage img{
-    width:100%;
-    height:100%;
+
+.aboutimage img {
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
 }
-.aboutcontent{
-    width:40%;
+
+.aboutcontent {
+    width: 40%;
     line-height: 2;
 }
 
 /* Footer Section  */
 
-.footersection{
+.footersection {
     display: flex;
     justify-content: space-between;
-    padding:2rem 14rem;
+    padding: 2rem 14rem;
 }
-.foottitle h1{
+
+.foottitle h1 {
     font-family: "Sofia", sans-serif;
 }
-.foottitle p{
+
+.foottitle p {
     font-size: 13px;
 }
+
 .wrapper {
     display: inline-flex;
-    padding:1rem 0rem;
+    padding: 1rem 0rem;
 }
 
 .wrapper .icon {
     margin: 0 4px;
     text-align: center;
     cursor: pointer;
-    color:#783e00;
+    color: #783e00;
 }
 
 .wrapper .icon span {
     display: block;
     height: 30px;
     width: 30px;
-    background-color:#fff;
+    background-color: #fff;
     border-radius: 50%;
 }
+
 .wrapper .icon span i {
     line-height: 32px;
     font-size: 15px;
 }
-.contactus,.address{
+
+.contactus,
+.address {
     line-height: 1.6;
 }

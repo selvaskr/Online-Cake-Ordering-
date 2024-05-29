@@ -30,6 +30,7 @@
             border-radius: 8px;
             border: 1px solid #E8EBED;
             background-color: #FAFBFE;
+            /* font-weight:600; */
         }
         .rowform{
             display: flex;
@@ -41,7 +42,7 @@
             flex-direction: column;
             margin:1rem 0rem;
             color:#232323;
-            font-size: 14px;
+            font-size: 16px;
         }
         .rowform input[type="text"],.rowform input[type="number"],textarea{
             width:200px;
@@ -59,6 +60,7 @@
             color:#fff;
             font-weight: 500;
             background-color: #ff8823;
+             transition: 0.5s all ease-in-out;
         }
         button:hover{
             cursor: pointer;
@@ -78,7 +80,7 @@
                 </div>
             </div>
             <ul>
-                <li><a href=""><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
+                <li><a href="{% url 'adminhome' %}"><img class="icon" src="{% static 'images/dashboard1.png' %}" alt="">Dashboard</a></li>
                 <li><a href="{% url 'adminproducts' %}"><img class="icon" src="{% static 'images/products1.png' %}"
                             alt="">Products</a></li>
                 <li><a href="{% url 'adminproductorders' %}"><img class="icon" src="{% static 'images/orders1.png' %}" alt="">Orders</a></li>
@@ -107,27 +109,30 @@
                     <div class="rowform">
                         <div>
                             <label style="margin-bottom: 5px;" for="id_product_name">Cake name </label>
-                            <input type="text" name="product_name" maxlength="255" required id="id_product_name">
+                            <input type="text" name="product_name" id="product_name" value="{{ Product.product_name }}" required>
                         </div>
                         <div>
                             <label style="margin-bottom: 5px;" for="id_product_price">Price </label>
-                            <input type="number" name="product_price" required id="id_product_price">
+                            <input type="number" name="product_price" required id="product_price" value="{{Product.product_price}}">
                         </div>
                     
-                        <div style="width: 100%;display: flex;flex-direction: row;justify-content: space-between;font-size: 16px; font-weight: 500;">
+                        <div style="width: 100%;display: flex;flex-direction: row;justify-content: space-between;font-size: 16px;">
                             <label for="id_featured_cake">Featured cake </label>
-                            <input type="checkbox" name="featured_cake" id="id_featured_cake">
+                            <input type="checkbox" name="featured_cake" id="featured_cake" {% if Product.featured_cake %}checked{% endif %}>
                         </div>
                     </div>
                     
                     <div class="textdes">
                         <label style="margin-bottom: 5px;" for="id_product_des">Product des:</label>
-                        <textarea name="product_des" cols="40" rows="10" maxlength="500" style="width: 350px;" required id="id_product_des">Default Description</textarea>
+                        <textarea name="product_des" cols="40" rows="10" maxlength="500" style="width: 350px;" required id="product_des">{{Product.product_des}}</textarea>
                     </div>
                 </div>
                 <div class="image">
-                    <label style=" margin-bottom: 5px;" for="id_product_img">Cake image</label>
-                    <input type="file" name="product_img" accept="image/*"  id="id_product_img">
+                    <label style=" margin-bottom: 5px;" for="id_product_img">Cake Image</label>
+                    {% if Product.product_img %}
+                        <img src="{{ Product.product_img }}" alt="Product Image"style="">
+                    {% endif %}
+                        <input type="file" name="product_img" accept="image/*" id="product_img">
                 </div>
                 
                 <div class="button" style="text-align: center; "><button type="submit">{% if action == 'Add' %}Add{% else %}Save{% endif %} to Product List</button></div>
@@ -137,5 +142,5 @@
     </div> 
 
 </body> 
-
 </html>
+<!-- Mint_Cake_Uso0oWx.jpg -->

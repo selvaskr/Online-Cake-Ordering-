@@ -1,48 +1,56 @@
-
-.productsection{
-    display:flex;
+.productsection {
+    display: flex;
+    flex-direction: row;
     background-color: #fefae1;
-    padding:7rem 8rem;
+    padding: 7rem 8rem;
     color: #3F000f;
 }
-.productimg{
-    width:500px;
-    height:400px;
-    padding-left: 40px;
+
+.productimg {
+    height: 400px;
+    padding-right: 40px;
 
 }
-.productimg img{
-    height:100%;
-    object-fit: contain;
+
+.productimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
 }
-.productdetail{
-    width:67%;
+
+.productdetail h1,
+.productdetail p,
+.productdetail div {
+    padding-bottom: 2rem;
+    font-size: 18px;
 }
-.productdetail h1, .productdetail p , .productdetail div{
-    padding-bottom:2rem;
-    font-size: 18px;   
-}
-.cakesize button,select{
+
+.cakesize button,
+select {
     padding: 6px 8px;
     background: transparent;
     border-radius: 10px;
     margin-left: 11px;
     border: 2px solid #ababab;
 }
-.productdetail input[type="submit"],a button{
+
+.productdetail input[type="submit"],
+a button {
     padding: 12px 14px;
     font-size: 20px;
     font-weight: bold;
     border-radius: 12px;
     background-color: antiquewhite;
-    border:none;
+    border: none;
 }
-.productdetail input[type="submit"]:hover{
+
+.productdetail input[type="submit"]:hover {
     cursor: pointer;
     background-color: rgb(174, 155, 129);
 }
-.cakesize button:hover{
+
+.cakesize button:hover {
     border-color: #793403;
-    cursor:pointer;
+    cursor: pointer;
 }

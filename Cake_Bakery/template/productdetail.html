@@ -14,22 +14,22 @@
 <body>
     <header style="background-color: #000;">
         <nav>
-            <li><a href="">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'products' %}">Our Cakes</a></li>
         </nav>
         <div class="title">
             <h2>Cake Park</h2>
         </div>
         <nav>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact us</a></li>
+            <li><a href="{% url 'home' %}#About">About</a></li>
+            <li><a href="{% url 'home' %}#Contact">Contact us</a></li>
         </nav>
     </header>
     <section class="productsection">
-        <div class="productimg">
+        <div class="productimg" style="width: 40%; float: left;">
             <img src="{{product.product_img.url }}" alt="">
         </div>
-        <div class="productdetail">
+        <div class="productdetail" style="width: 60%; float: right;">
             <h1 style="font-size: 3rem; color:#3F000f">{{product.product_name}}</h1>
             <p>{{product.product_des}}</p>
             <form method="post" action="{% url 'addtocart' product.product_id %}">

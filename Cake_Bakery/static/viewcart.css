@@ -1,57 +1,69 @@
-body{
+body {
     /* background-color: #fefae1; */
     background-color: #fefced;
 }
-.main{
+
+.main {
     display: flex;
     justify-content: space-between;
     /* background-color: #fefae1; */
 }
-.cart{
-    margin:3rem 20rem;
-    width:100%;
+
+.cart {
+    margin: 3rem 20rem;
+    width: 100%;
     /* background-color: #fefced; */
     background-color: #fefae1;
     border: 1px solid #ababab;
     border-radius: 8px;
 }
-.cart h2{
+
+.cart h2 {
     /* text-align: center; */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:0.5rem 0rem;
+    padding: 0.5rem 0rem;
     border-bottom: 1px solid #ababab;
 }
-.cartitems{
-    padding:1rem 3rem;
+
+.cartitems {
+    padding: 1rem 3rem;
 }
-.cartitem{
-    display:flex;
+
+.cartitem {
+    display: flex;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
     align-items: center;
 }
-.cartitems{
+
+.cartitems {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ababab;
 }
-.cartitems:last-child{
+
+.cartitems:last-child {
     border-bottom: none;
 }
-.cartitems img{
-    width:142px;
-    height:142px;
-    object-fit: contain;
+
+.cartitems img {
+    width: 142px;
+    height: 142px;
+    object-fit: cover;
     border-radius: 12px;
 }
-.cartitems .cartdetails{
-    padding-left:12px;
+
+.cartitems .cartdetails {
+    padding-left: 12px;
 }
-.cartdetails h3,p{
-    margin-bottom:12px;
+
+.cartdetails h3,
+p {
+    margin-bottom: 12px;
 }
+
 .button {
     outline: none;
     border: none;
@@ -69,8 +81,9 @@ body{
     transform: scale(1.1);
     cursor: pointer;
 }
-.payment{
-    right:0;
+
+.payment {
+    right: 0;
     position: fixed;
     margin-right: 4px;
     margin-top: 3rem;
@@ -79,12 +92,15 @@ body{
     background-color: #fefae1;
     border: 1px solid #ababab;
 }
-.payment p,h3{
+
+.payment p,
+h3 {
     display: flex;
     justify-content: space-between;
 }
-.payment button{
+
+.payment button {
     font-size: 20px;
     font-weight: bold;
-    padding:9px 62px;
+    padding: 9px 62px;
 }

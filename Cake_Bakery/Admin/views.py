@@ -167,18 +167,3 @@ class LogoutView(View):
         # Redirect to the login page (adjust the 'login' URL name according to your project)
         return redirect('adminlogin')
     
-
-
-
-    """
-    
-        ord=get_list_or_404(OrderItem, order_id=ordered.order_id)
-        for products in ord:
-            product={}
-            productdetail=get_object_or_404(Cake_Products, product_id=products.product_id)
-            product['cakename']=productdetail.product_name
-            product['Quality']=products.quantity
-            product['Size']=products.size
-            product['Amount']=products.Amount
-            customerorder['product'].append(product)
-    """
